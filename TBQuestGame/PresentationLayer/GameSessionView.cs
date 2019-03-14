@@ -45,6 +45,7 @@ namespace TBQuestGame.PresentationLayer
         {
             _player = player;
             _message = initialMessages;
+            
         }
         #endregion
     }

@@ -117,11 +117,45 @@
                     Grid.Column="0"
                     Margin="0,0,0,10"
                     Style="{StaticResource BorderStyle}">
-                    <Label 
+                    <StackPanel>
+                        <Label 
                         Content="Action Interface"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Style="{StaticResource MainPanelLabelStyle}"/>
+                        <StackPanel
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                            <Label Content="Location Name" Style="{StaticResource MainPanelLabelStyle}"/>
+                            <TextBox Text="{Binding CurrentLocation.Name}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                        </StackPanel>
+                        <StackPanel
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                            <Label Content="Description" Style="{StaticResource MainPanelLabelStyle}"/>
+                            <TextBox Text="{Binding CurrentLocation.Description}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                        </StackPanel>
+                        <ListBox
+                                HorizontalAlignment="Right"
+                                Width="200"
+                                Height="50"
+                                ItemsSource="{Binding AccessibleLocations}"
+                                SelectedItem="{Binding CurrentLocationName}" Margin="0,0,0,0">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="0">
+                                        <Label 
+					                        Content="{Binding }"                                                    
+					                        ContentStringFormat="Name: {0}"/>
+                                        <TextBox 
+					                        Text="{Binding AccessibleLocations, StringFormat='\{0\}'}" 
+					                        Style="{StaticResource MainPanelTextBoxStyle}"
+					                        Width="Auto"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
                 </Border>
                 <Border
                     Grid.Row="0"
@@ -191,8 +225,8 @@
                         <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
-                            <Label Content="Movelist" Style="{StaticResource MainPanelLabelStyle}"/>
-                            <TextBox Text="" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                            <Label Content="Special Move" Style="{StaticResource MainPanelLabelStyle}"/>
+                            <TextBox Text="{Binding Player.SpecialMove}" Style="{StaticResource MainPanelTextBoxStyle}"/>
                         </StackPanel>
                         <StackPanel
                                 Orientation="Horizontal"
@@ -260,14 +294,13 @@
                             <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
-                                <Label Content="Water Bottles" Style="{StaticResource MainPanelLabelStyle}"/>
-                                <TextBox Text="" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                                <Label Content="Inventory" Style="{StaticResource MainPanelLabelStyle}"/>
+                                <TextBox Text="Water Bottle" Style="{StaticResource MainPanelTextBoxStyle}"/>
                             </StackPanel>
                             <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
-                                <Label Content="Energy Drink" Style="{StaticResource MainPanelLabelStyle}"/>
-                                <TextBox Text="" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                                <TextBox Text="Power Up" Style="{StaticResource MainPanelTextBoxStyle}"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
