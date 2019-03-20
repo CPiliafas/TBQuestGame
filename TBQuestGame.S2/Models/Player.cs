@@ -18,17 +18,27 @@ namespace TBQuestGame.Models
 
         private Gender _gender;
 
+        private int _wins;
+
+        #endregion
+
+        #region PROPERTIES
         public Gender gender
         {
             get { return _gender; }
             set { _gender = value; }
         }
 
-       
+        public int Wins
+        {
+            get { return _wins; }
+            set
+            {
+                OnPropertyChanged(nameof(_wins));
+                _wins = value;
+            }
+        }
 
-        #endregion
-
-        #region PROPERTIES
 
         #endregion
 

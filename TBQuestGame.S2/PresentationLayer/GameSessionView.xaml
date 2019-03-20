@@ -29,7 +29,7 @@
         </Style>
         <Style x:Key="MainPanelLabelStyle" TargetType="Label">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Lucida Console"/>
+            <Setter Property="FontFamily" Value="Constantia"/>
         </Style>
         <Style x:Key="MainPanelButtonStyle" TargetType="Button">
             <Setter Property="Margin" Value="10,0,10,0"/>
@@ -76,6 +76,7 @@
         </Style>
         <Style x:Key="MainPanelTextBoxStyle" TargetType="TextBox">
             <Setter Property="Foreground" Value="MidnightBlue"/>
+            <Setter Property="FontFamily" Value="Constantia"/>
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="20"/>
             <Setter Property="Padding" Value="3,0,0,0"/>
@@ -117,7 +118,7 @@
                     Grid.Column="0"
                     Margin="0,0,0,10"
                     Style="{StaticResource BorderStyle}">
-                    <StackPanel>
+                    <StackPanel Margin="0.2,0.2,0,-0.6">
                         <Label 
                         Content="Action Interface"
                         VerticalAlignment="Center"
@@ -138,23 +139,43 @@
                         <ListBox
                                 HorizontalAlignment="Right"
                                 Width="200"
-                                Height="50"
+                                Height="150"
                                 ItemsSource="{Binding AccessibleLocations}"
-                                SelectedItem="{Binding CurrentLocationName}" Margin="0,0,0,0">
+                                SelectedItem="{Binding CurrentLocationName}" Margin="0,0,0.2,0">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="0">
                                         <Label 
-					                        Content="{Binding }"                                                    
+					                        Content="{Binding ''}"                                                    
 					                        ContentStringFormat="Name: {0}"/>
                                         <TextBox 
-					                        Text="{Binding AccessibleLocations, StringFormat='\{0\}'}" 
+					                        Text="{Binding AccessibleLocations, StringFormat=\{0\}}" 
 					                        Style="{StaticResource MainPanelTextBoxStyle}"
 					                        Width="Auto"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
+                        <Label
+                            Content="1.Talk"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource MainPanelLabelStyle}"/>
+                        <Label/>
+                        <Label
+                            Content="2.Fight"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource MainPanelLabelStyle}"/>
+                        <Label/>
+                        <Label
+                            Content="3.Use Item"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource MainPanelLabelStyle}"/>
+                        <Label/>
+                        <Label
+                            Content="4.Forfeit"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource MainPanelLabelStyle}"/>
+                        <Label/>
                     </StackPanel>
                 </Border>
                 <Border
@@ -214,19 +235,19 @@
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
                             <Label Content="Enemy Name" Style="{StaticResource MainPanelLabelStyle}"/>
-                            <TextBox Text="{Binding Enemy.Name}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                            <TextBox Text="{Binding Character.Name}" Style="{StaticResource MainPanelTextBoxStyle}"/>
                         </StackPanel>
                         <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
                             <Label Content="Enemy Health" Style="{StaticResource MainPanelLabelStyle}"/>
-                            <TextBox Text="{Binding Player.Health}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                            <TextBox Text="{Binding Character.Health}" Style="{StaticResource MainPanelTextBoxStyle}"/>
                         </StackPanel>
                         <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
                             <Label Content="Special Move" Style="{StaticResource MainPanelLabelStyle}"/>
-                            <TextBox Text="{Binding Player.SpecialMove}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                            <TextBox Text="{Binding Character.SpecialMove}" Style="{StaticResource MainPanelTextBoxStyle}"/>
                         </StackPanel>
                         <StackPanel
                                 Orientation="Horizontal"
@@ -249,8 +270,8 @@
                         <StackPanel
                             Orientation="Vertical"
                             HorizontalAlignment="Left">
-                            <Label Content="User Check Box" Style="{StaticResource MainPanelLabelStyle}"/>
-                            <TextBox Text="{Binding Player.Lives}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                            <Label Content="Amount of Wins" Style="{StaticResource MainPanelLabelStyle}"/>
+                            <TextBox Text="{Binding Player.Wins}" Style="{StaticResource MainPanelTextBoxStyle}"/>
                         </StackPanel>
                         <Border
                             Grid.Column="1"

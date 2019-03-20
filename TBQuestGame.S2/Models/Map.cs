@@ -52,6 +52,7 @@ namespace TBQuestGame.Models
 
         #region CONSTRUCTORS
 
+        
 
         #endregion
 
@@ -60,6 +61,11 @@ namespace TBQuestGame.Models
         public void Move(Location location)
         {
             _currentLocation = location;
+        }
+
+        public bool CanMove(Location location)
+        {
+            return location.Accessible;
         }
 
         #endregion

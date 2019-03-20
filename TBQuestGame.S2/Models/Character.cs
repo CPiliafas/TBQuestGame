@@ -14,6 +14,7 @@ namespace TBQuestGame.Models
             Fireball,
             Tackle,
             Sweep,
+            Superman,
             Powerpush,
             Uppercut,
             Megapunch,
@@ -50,7 +51,10 @@ namespace TBQuestGame.Models
         public int Health
         {
             get { return health; }
-            set { health = value; }
+            set
+            {
+                OnPropertyChanged(nameof(health));
+                health = value; }
         }
 
         

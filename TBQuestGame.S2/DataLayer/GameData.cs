@@ -27,12 +27,82 @@ namespace TBQuestGame.DataLayer
             return new Player()
             {
                 Id = 1,
-                Name = "Jack",
+                Name = "The Player",
                 LocationId = 1,
                 Health = 300,
                 gender = Player.Gender.Male,
+                SpecialMove = Character.SpecialMoveName.Megapunch,
+                Wins = 0
+            };
+        }
+
+        public static Character CharacterData()
+        {
+            Character character = new Character();
+            new Character()
+            {
+                Id = 1,
+                Name = "Zero",
+                LocationId = 2,
+                Health = 300,
+                SpecialMove = Character.SpecialMoveName.Superman
+            };
+
+            new Character()
+            {
+                Id = 2,
+                Name = "Charlotte",
+                LocationId = 3,
+                Health = 300,
+                SpecialMove = Character.SpecialMoveName.Uppercut
+            };
+
+            new Character()
+            {
+                Id = 3,
+                Name = "Shen",
+                LocationId = 4,
+                Health = 300,
+                SpecialMove = Character.SpecialMoveName.Powerpush
+            };
+
+            new Character()
+            {
+                Id = 4,
+                Name = "Marcus",
+                LocationId = 5,
+                Health = 300,
+                SpecialMove = Character.SpecialMoveName.Tackle
+            };
+
+            new Character()
+            {
+                Id = 5,
+                Name = "Keiji",
+                LocationId = 6,
+                Health = 300,
+                SpecialMove = Character.SpecialMoveName.Fireball
+            };
+
+            new Character()
+            {
+                Id = 6,
+                Name = "Mia",
+                LocationId = 7,
+                Health = 300,
+                SpecialMove = Character.SpecialMoveName.Sweep
+            };
+
+            new Character()
+            {
+                Id = 7,
+                Name = "Jack Cross",
+                LocationId = 8,
+                Health = 500,
                 SpecialMove = Character.SpecialMoveName.Megapunch
             };
+            
+            return character;
         }
 
         public static Location InitialGameLMapLocation()
@@ -71,7 +141,7 @@ namespace TBQuestGame.DataLayer
                 {
                     Id = 3,
                     Name = "France",
-                    Description = "Here you will face against Charlotte",
+                    Description = "You arrived in Paris. Here you will face against Charlotte",
                     Accessible = true
                 },
 
@@ -79,7 +149,7 @@ namespace TBQuestGame.DataLayer
                 {
                     Id = 4,
                     Name = "China",
-                    Description = "Here you will face against Shen",
+                    Description = "The fight takes place in a dojo in Shanghai. Here you will face against Shen",
                     Accessible = true
                 },
 
@@ -87,7 +157,7 @@ namespace TBQuestGame.DataLayer
                 {
                     Id = 5,
                     Name = "Germany",
-                    Description = "Here you will face against Marcus",
+                    Description = "Oktober Fest is currently going on as you get on the stage. Here you will face against Marcus",
                     Accessible = true
                 },
 
@@ -95,7 +165,7 @@ namespace TBQuestGame.DataLayer
                 {
                     Id = 6,
                     Name = "Japan",
-                    Description = "Here you will face against Keiji",
+                    Description = "You will fight in Tokyo's city square. Here you will face against Keiji",
                     Accessible = true
                 },
 
@@ -103,7 +173,7 @@ namespace TBQuestGame.DataLayer
                 {
                     Id = 7,
                     Name = "Jamaica",
-                    Description = "Here you will face against Mia",
+                    Description = "The fight takes place on a sunny beach full of happy people dancing and partying. Here you will face against Mia",
                     Accessible = true
                 },
 

@@ -40,8 +40,10 @@ namespace TBQuestGame.PresentationLayer
         public Location CurrentLocation
         {
             get { return _currentLocation; }
-            set {
+            set
+            {
                 _currentLocation = value;
+                OnPropertyChanged(nameof(CurrentLocation));
             }
         }
 
@@ -54,18 +56,26 @@ namespace TBQuestGame.PresentationLayer
 
         public ObservableCollection<Location> AccessibleLocations
         {
-            get { return _accessibleLocations; }
-            set { _accessibleLocations = value; }
+            get
+            {
+                return _accessibleLocations;
+            }
+            set
+            {
+                _accessibleLocations = value;
+                OnPropertyChanged(nameof(AccessibleLocations));
+            }
         }
 
 
         public string CurrentLocationName
         {
             get { return _currentLocationName; }
-            set {
+            set
+            {
                 _currentLocationName = value;
                 OnPlayMove();
-                OnPropertyChanged(nameof(CurrentLocation));
+                OnPropertyChanged("CurrentLocation");
             }
         }
 
@@ -110,10 +120,31 @@ namespace TBQuestGame.PresentationLayer
             //Location location = AccessibleLocations.FirstOrDefault(l => l.Name == _currentLocationName);
             _gameMap.CurrentLocation = newLocation;
             _currentLocation = newLocation;
-        }
-        #endregion
 
-        #region EVENTS
-        #endregion  
+            OnPropertyChanged(nameof(MessageDisplay));
+            UpdateAccessibleLocations();
+        }
+        private void UpdateAccessibleLocations()
+        {
+            _accessibleLocations.Clear();
+
+            //
+            // add all accessible locations to list
+            //
+            foreach (Location location in _gameMap.Locations)
+            {
+                if (location.Accessible == true)
+                {
+                    _accessibleLocations.Add(location);
+                }
+            }
+            OnPropertyChanged(nameof(AccessibleLocations));
+        }
+
+            #endregion
+
+            #region EVENTS
+            #endregion
+        }
     }
-}
+

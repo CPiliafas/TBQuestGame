@@ -56,6 +56,10 @@ namespace TBQuestGame.Models
 
         #region CONSTRUCTORS
 
+        public Location()
+        {
+
+        }
 
         #endregion
 
@@ -63,7 +67,7 @@ namespace TBQuestGame.Models
 
         public override string ToString()
         {
-            return _id + " " + _name;
+            return _name;
         }
 
         #endregion
